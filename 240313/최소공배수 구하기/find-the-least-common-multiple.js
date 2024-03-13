@@ -1,13 +1,12 @@
 const fs = require('fs');
 const [n, m] = fs.readFileSync('/dev/stdin').toString().trim().split(' ').map(Number);
 
-let result = 0;
+let gcd = 0;
 
-for(let i = m; i <= m*n; i++) {
-    if(i % n === 0 && i % m === 0) {        
-        result = i;
-        break;
+for(let i = 1; i <= Math.min(n, m); i++) {
+    if(n % i === 0 && m % i === 0) {        
+        gcd = i;    
     }
 }
 
-console.log(result);
+console.log(n * m / gcd);
