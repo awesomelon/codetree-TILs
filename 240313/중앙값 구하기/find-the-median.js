@@ -1,26 +1,21 @@
 const fs = require('fs');
 const [a, b, c] = fs.readFileSync('/dev/stdin').toString().trim().split(' ').map(v => +v);
 
-if(a > b && a < c) {
-    console.log(a);
-}
 
-if(a > c && a < b) {
-    console.log(a);
-}
-
-if(b > a && b < c) {
-    console.log(b);
-}
-
-if(b > c && b < a) {
-    console.log(b);
-}
-
-if(c > a && c < b) {
-    console.log(c);
-}
-
-if(c > b && c < a) {
-    console.log(c)
+if(a > b) {
+    if(c > a) {
+        console.log(a);
+    } else if(b > c) {
+        console.log(b);
+    } else {
+        console.log(c);
+    }
+} else {
+    if(c > b) {
+        console.log(b);
+    } else if(a > c) {
+        console.log(a);
+    } else {
+        console.log(c);
+    }
 }
