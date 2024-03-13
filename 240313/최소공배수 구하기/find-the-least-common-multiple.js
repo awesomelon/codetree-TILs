@@ -3,8 +3,8 @@ const [n, m] = fs.readFileSync('/dev/stdin').toString().trim().split(' ').map(Nu
 
 let result = 0;
 
-for(let i = n; i < m*n; i++) {
-    if(i % n === 0 && i % m === 0) {
+for(let i = m; i < m*n; i++) {
+    if(i % n === 0 && i % m === 0) {        
         result = i;
         break;
     }
