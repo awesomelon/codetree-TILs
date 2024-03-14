@@ -18,60 +18,39 @@ function getSeason(M) {
 }
 
 function validLeapYear(Y) {
-    if(Y % 4 === 0) {
-        if(Y % 100 === 0) {
-            if(Y % 400 === 0) {
-                return true;
-            }
-            return false;
-        }
+    if(Y % 4 !== 0) {
+        return false
+    }
+
+    if(Y % 100 !== 0) {
         return true;
     }
+
+    if(Y % 4 === 0) {
+        return true;
+    }
+
     return false;
 }
 
-function lastDay(Y, M) {
-    if(M >= 1 && M <= 7) {
-        if(M % 2 === 0) {
-            const checkLeap = validLeapYear(Y);
-            if(M === 2) {
-                if(checkLeap) {
-                    return 29;
-                }
-                return 28;
-            }
 
-            return 30;
-        } else {
-            return 31;
-        }
-    } else {
-        if(M % 2 === 0) {
-            return 31;
-        }
 
-        return 30;
-    }
-}
-
-function validExsistsDay(Y, M, D) {
-    const getLastDay = lastDay(Y, M);
-    if(D > getLastDay) {
-        return false;
-    }
-
-    return true;
+function inValidExsistsDay(Y, M, D) {
+    let lastDays = [0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    lastDays[2] = validLeapYear(Y) ? 29: 28;
+    return D <= lastDays[M];    
 }
 
 function main(Y, M, D) {
-    const validDay = validExsistsDay(Y, M ,D);
+    const invalid = inValidExsistsDay(Y, M ,D);
 
-    if(validDay) {
-        const season = getSeason(M);
-        return season;
+    if(!invalid) {
+        return -1;
     }
 
-    return -1;
+    const season = getSeason(M);
+    return season;
+    
 }
 
 console.log(main(Y, M, D));
