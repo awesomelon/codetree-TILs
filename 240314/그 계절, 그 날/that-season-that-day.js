@@ -26,7 +26,7 @@ function validLeapYear(Y) {
         return true;
     }
 
-    if(Y % 4 === 0) {
+    if(Y % 400 === 0) {
         return true;
     }
 
