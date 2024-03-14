@@ -45,6 +45,12 @@ function lastDay(Y, M) {
         } else {
             return 31;
         }
+    } else {
+        if(M % 2 === 0) {
+            return 31;
+        }
+
+        return 30;
     }
 }
 
