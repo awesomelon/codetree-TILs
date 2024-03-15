@@ -17,6 +17,8 @@ function evenAndFive(n) {
     if((Number(a) + Number(b)) % 5 === 0) {
         return 'Yes';
     }
+
+    return 'No';
 }
 
 console.log(evenAndFive(n));
