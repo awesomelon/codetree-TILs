@@ -23,7 +23,7 @@ for(let i = 1; i < input.length; i++) {
                 tiles[i] = 'W';            
             }            
         }
-        cursor -= move;
+        cursor = cursor - move < 0 ? 0: cursor- move;
     }
 }
 
