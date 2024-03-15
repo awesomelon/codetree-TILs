@@ -7,19 +7,19 @@ let tiles = [];
 let cursor = 50;
 for(let i = 1; i < input.length; i++) {
     const [m, location] = input[i].split(' ');
-    const move = Number(m);
+    const move = Number(m) - 1;
     if(location === 'R') {        
-       for(let i = cursor; i < cursor + move; i++) {
-            tiles[i] = 'B';
+       for(let i = cursor; i <= cursor + move; i++) {
+            tiles[i] = 'B';            
         }
-       cursor += move - 1;
+        cursor += move;
     }
 
     if(location === 'L') {
-        for(let i = cursor; i > cursor - move; i--) {
-            tiles[i] = 'W';
+        for(let i = cursor; i >= cursor - move; i--) {
+            tiles[i] = 'W';            
         }
-       cursor -= move + 1;
+        cursor -= move;
     }
 }
 
