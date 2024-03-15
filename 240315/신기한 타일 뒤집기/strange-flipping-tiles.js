@@ -19,7 +19,7 @@ for(let i = 1; i < input.length; i++) {
         for(let i = cursor; i > cursor - move; i--) {
             tiles[i] = 'W';
         }
-       cursor -= move;
+       cursor -= move + 1;
     }
 }
 
