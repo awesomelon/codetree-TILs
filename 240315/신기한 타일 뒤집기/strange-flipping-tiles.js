@@ -15,9 +15,13 @@ for(let i = 1; i < input.length; i++) {
         cursor += move;
     }
 
-    if(location === 'L') {
+    if(location === 'L') {        
         for(let i = cursor; i >= cursor - move; i--) {
-            tiles[i] = 'W';            
+            if(i < 0) {
+                tiles.unshift('W');
+            } else {
+                tiles[i] = 'W';            
+            }            
         }
         cursor -= move;
     }
