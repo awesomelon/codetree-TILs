@@ -22,6 +22,8 @@ function operation(a, b, c) {
     if(b === '/') {
         return `${oper} ${parseInt(n1 / n2)}`;
     }
+
+    return 'False';
 }
 
 console.log(operation(a,b,c));
