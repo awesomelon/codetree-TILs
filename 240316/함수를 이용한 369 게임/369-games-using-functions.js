@@ -2,18 +2,15 @@ const fs = require('fs');
 const [a, b] = fs.readFileSync('/dev/stdin').toString().trim().split(' ').map(Number);
 
 const check369 = (n) => {
-    const asString = `${n}`;
-    let exists369 = false;
-
-    for(let i = 0; i < asString.length; i++) {
-        const current = Number(asString[i]);
-
-        if(current === 3 || current === 6 || current === 9) {
-            exists369 = true;
+    while(n > 0) {
+        if(n % 10 === 3 || n % 10 === 6 || n % 10 === 9) {
+            return true;
         }
+
+        n = parseInt(n / 10);
     }
 
-    return exists369; 
+    return false; 
 }
 
 const check3 = (n) => {
