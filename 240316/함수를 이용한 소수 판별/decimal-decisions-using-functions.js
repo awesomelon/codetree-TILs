@@ -37,7 +37,7 @@ function isEven(n) {
 let sum = 0;
 
 for(let i = a; i <=b; i++) {
-    if(isEven(i)) {
+    if(isEven(i) || a === 1) {
         continue;
     }
 
