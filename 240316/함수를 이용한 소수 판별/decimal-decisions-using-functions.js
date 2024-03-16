@@ -30,14 +30,14 @@ function isPrime(n) {
     return result;
 }
 
-function isEven(n) {
+function isEven(n) {    
     return n % 2 === 0;
 }
 
 let sum = 0;
 
-for(let i = a; i <=b; i++) {
-    if(isEven(i) || a === 1) {
+for(let i = a; i <= b; i++) {
+    if((a > 2 && isEven(i)) || a === 1) {
         continue;
     }
 
