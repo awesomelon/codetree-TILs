@@ -4,43 +4,22 @@ const [a, b] = fs.readFileSync('/dev/stdin').toString().trim().split(' ').map(Nu
 let memo = {};
 
 function isPrime(n) {
-    if(!memo[n]) {
-        memo[n] = {
-            isPrime: false,
-            check: false
-        };
+    if(n === 1) {
+        return false;
     }
 
-    if(memo[n].check) {
-        return memo[n].isPrime;
-    }
-
-    let result = true;
     for(let i = 2; i < n; i++) {
         if(n % i === 0) {
-            result = false;
+           return false;
         }
     }
 
-    memo[n] = {
-        isPrime: result,
-        check: true
-    }
-
-    return result;
-}
-
-function isEven(n) {    
-    return n % 2 === 0;
+    return true
 }
 
 let sum = 0;
 
 for(let i = a; i <= b; i++) {
-    if((a > 2 && isEven(i)) || a === 1) {
-        continue;
-    }
-
     if(isPrime(i)) {
         sum+=i;
     }
