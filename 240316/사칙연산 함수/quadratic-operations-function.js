@@ -20,7 +20,7 @@ function operation(a, b, c) {
     }
 
     if(b === '/') {
-        return `${oper} ${n1 / n2}`;
+        return `${oper} ${pasreInt(n1 / n2)}`;
     }
 }
 
