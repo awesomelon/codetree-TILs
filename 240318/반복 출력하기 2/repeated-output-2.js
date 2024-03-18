@@ -7,9 +7,8 @@ function recur(n) {
     if(n === 0) {
         return;
     }
-    recur(n - 1);
-
     console.log('HelloWorld');
+    recur(n - 1);
 }
 
 recur(N);
