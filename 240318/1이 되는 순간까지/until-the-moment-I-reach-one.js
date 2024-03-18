@@ -8,7 +8,7 @@ function recur(n, s) {
         return s;
     }
 
-    return recur(n % 2 ? parseInt(n / 2) : parseInt(n / 3), s + 1);
+    return recur(n % 2 === 0 ? parseInt(n / 2) : parseInt(n / 3), s + 1);
 }
 
 console.log(N === 1 ? 0: recur(N, 1));
