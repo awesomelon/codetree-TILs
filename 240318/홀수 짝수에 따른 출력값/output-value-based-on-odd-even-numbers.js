@@ -4,8 +4,12 @@ const input = fs.readFileSync('/dev/stdin').toString().trim();
 const N = Number(input);
 
 function recur(n) {
-    if(n <= 2) {
-        return n;
+    if(n === 1) {
+        return 1;
+    }
+
+    if(n === 2) {
+        return 2;
     }
 
     if(N % 2 === 0) {
