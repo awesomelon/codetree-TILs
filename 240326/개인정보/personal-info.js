@@ -8,8 +8,8 @@ class Person {
 
     constructor(name, height, weight) {
         this.name = name;
-        this.height = parseFloat(height);
-        this.weight = parseFloat(weight);
+        this.height = Number(height);
+        this.weight = Number(weight);
     }
 }
 
