@@ -8,8 +8,8 @@ class Person {
 
     constructor(name, height, weight) {
         this.name = name;
-        this.height = Number(height);
-        this.weight = Number(weight);
+        this.height = Number(height).toFixed(1);
+        this.weight = Number(weight).toFixed(1);
     }
 }
 
