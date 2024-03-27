@@ -9,7 +9,7 @@ const targetAt = new Date(`2011-${m2}-${d2}`).getTime();
 let diff = (targetAt - startAt) / 1000 / 60 / 60 / 24;
 let cursor = 1;
 
-while(diff) {
+while(diff !== 0) {
     if(diff < 0) {
         diff++;
         cursor--;
