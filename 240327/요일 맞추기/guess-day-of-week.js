@@ -13,15 +13,19 @@ while(diff !== 0) {
     if(diff < 0) {
         diff++;
         cursor--;
+
+        if(cursor < 0) {
+            cursor = 6;
+        }
     }
 
     if(diff > 0) {
         diff--;
         cursor++;
-    }
 
-    if(cursor >= 6) {
-        cursor = 0;
+        if(cursor > 6) {
+            cursor = 0;
+        }
     }
 }
 
