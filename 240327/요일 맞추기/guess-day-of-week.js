@@ -20,7 +20,7 @@ while(diff) {
         cursor++;
     }
 
-    if(cursor === 6) {
+    if(cursor >= 6) {
         cursor = 0;
     }
 }
