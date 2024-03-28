@@ -12,4 +12,4 @@ rest.forEach(v => {
     }
 });
 
-console.log(area.filter(v => v > 1).length)
+console.log(Math.max(...area.filter(v => !!v)))
