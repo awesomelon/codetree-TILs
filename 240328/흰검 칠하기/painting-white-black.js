@@ -3,68 +3,52 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 
 const n = Number(input[0]);
 
-const segments = [];
-let cursor = 0;
 
 const OFFSET = 1000;
-const MAX_R = 2000;
+const MAX_K = 100000;
+let cursor = MAX_K;
+
+let a = Array(2 * MAX_K + 1).fill(0);
+let cntB = Array(2 * MAX_K + 1).fill(0);
+let cntW = Array(2 * MAX_K + 1).fill(0);
+let b = 0, w = 0, g = 0;
+
 
 for(let i = 1; i <= n; i++) {
     let [distance, direction] = input[i].split(' ');
     distance = Number(distance);
 
-    let sectionLeft, sectionRight;
-    if(direction === 'L') {
-        sectionLeft = cursor - distance
-        sectionRight = cursor;
-        cursor -= distance;
+   if(direction === 'L') {
+        while(distance > 0) {
+            a[cursor] = 1;
+            cntW[cursor] += 1;
+            distance -= 1;
 
-        segments.push([sectionLeft, sectionRight, 'W'])
-    } else {
-        sectionLeft = cursor;
-        sectionRight = cursor + distance;
-        cursor += distance;
-        segments.push([sectionLeft, sectionRight, 'B']);
+            if(distance) {
+                cursor -= 1;
+            }
+        }
+   } else {
+        while(distance > 0) {
+            a[cursor] = 2;
+            cntB[cursor] += 1;
+            distance -= 1;
+
+            if(distance) {
+                cursor += 1;
+            }
+        }
+   }
+}
+
+for(let i = 0; i < 2 * MAX_K + 1; i++) {
+    if(cntB[i] >= 2 && cntW[i] >= 2) {
+        g += 1;
+    } else if(a[i] === 1) {
+        w += 1;
+    } else if(a[i] === 2) {
+        b += 1;
     }
 }
 
-let result = [];
-
-segments.forEach(segment => {
-    let [x1, x2, color] = segment;
-    x1 += OFFSET;
-    x2 += OFFSET;
-    
-    for(let i = x1; i < x2; i++) {
-        if(!result[i]) result[i] = [];
-        if(result[i] === 'G') continue;
-        result[i].push(color);
-
-        const black = result[i].filter(v => v === 'B').length;
-        const white = result[i].filter(v => v === 'W').length;
-
-        if(black >= 2 && white >= 2) {
-            result[i] = 'G';
-        }
-    }
-})
-
-let white = 0;
-let black = 0;
-let gray = 0;
-
-result.forEach(v => {
-    if(v === 'G') {
-        gray++;
-    }
-
-    const last = v[v.length - 1];
-    if(last === 'B') {
-        black++;
-    }
-    if(last === 'W') {
-        white++;
-    }
-});
-
-console.log(`${white} ${black} ${gray}`)
+console.log(`${w} ${b} ${g}`)
