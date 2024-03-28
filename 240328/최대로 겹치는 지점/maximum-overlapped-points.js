@@ -6,7 +6,7 @@ const area = [];
 rest.forEach(v => {
     const [x1, x2] = v.split(' ').map(Number);
 
-    for(let i = x1; i < x2; i++) {
+    for(let i = x1; i <= x2; i++) {
         if(!area[i]) area[i] = 0;
         area[i] += 1;
     }
