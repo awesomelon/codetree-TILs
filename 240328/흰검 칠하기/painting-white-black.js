@@ -53,7 +53,7 @@ let white = 0;
 let black = 0;
 let gray = 0;
 
-result.filter(v => !!v).forEach(v => {
+result.forEach(v => {
     if(v === 'G') {
         gray++;
     }
