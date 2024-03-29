@@ -1,8 +1,10 @@
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 
-let area = [];
+const MAX_R = 2000
 const OFFSET = 1000;
+
+let area = Array.from(Array(MAX_R + 1), () => Array(MAX_R + 1).fill(0));
 
 input.forEach((v, index) => {
     const [x1, y1, x2 ,y2] = v.split(' ').map(Number).map(v => v + OFFSET);
@@ -15,28 +17,27 @@ input.forEach((v, index) => {
     }
 });
 
-area = area.filter(v => !!v).map(v => v.filter(v => !!v))
+let min_x = MAX_R, max_x = 0, min_y = MAX_R, max_y = 0;
+let firstRectExists = false;
 
-let x = 0, y = 0;
-
-area.forEach(v => {
-    let temp = 0;
-    let pass = true;
-    for(let i = 0; i < v.length; i++) {
-        const yaxis = v[i];
-        if(yaxis === 1) {
-            if(pass) {
-                y++;
-                pass = false;
-            }
-            temp = i + 1;    
+for(let x = 0; x <= MAX_R; x++) {
+    for(let y = 0; y <= MAX_R; y++) {
+        if(area[x][y] === 1) {
+            firstRectExists = true
+            min_x = Math.min(min_x, x);
+            max_x = Math.max(max_x, x);
+            min_y = Math.min(min_y, y);
+            max_y = Math.max(max_y, y);
         }
-
     }
+}
 
-    if(temp > x) {
-        x = temp;
-    }
-});
+let result;
 
-console.log(x * y)
+if(!firstRectExists) {
+    result = 0;
+} else {
+    result = (max_x - min_x + 1) * (max_y - min_y + 1)
+}
+
+console.log(result)
