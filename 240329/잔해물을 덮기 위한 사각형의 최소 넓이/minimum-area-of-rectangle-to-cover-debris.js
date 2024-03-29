@@ -21,15 +21,18 @@ let x = 0, y = 0;
 
 area.forEach(v => {
     let temp = 0;
-    v.forEach((yaxis, i) => {
-        if(i === 0 && yaxis === 1) {
-            y++;
+    let pass = true;
+    for(let i = 0; i < v.length; i++) {
+        const yaxis = v[i];
+        if(yaxis === 1) {
+            if(pass) {
+                y++;
+                pass = false;
+            }
+            temp = i + 1;    
         }
 
-        if(yaxis === 1) {
-            temp = i + 1;
-        }
-    })
+    }
 
     if(temp > x) {
         x = temp;
