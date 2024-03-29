@@ -27,7 +27,7 @@ area.forEach(v => {
         }
 
         if(yaxis === 1) {
-            temp++;
+            temp = i + 1;
         }
     })
 
@@ -36,4 +36,4 @@ area.forEach(v => {
     }
 });
 
-console.log(x, y)
+console.log(x * y)
