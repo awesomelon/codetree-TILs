@@ -32,7 +32,7 @@ for(let i = 0; i < A.length; i++) {
     const a = A[i];
     const b = B[i];
 
-    if(!first) {
+    if(!first && a !== b) {
         first = a > b ? 'A' : 'B';
         continue;
     }
