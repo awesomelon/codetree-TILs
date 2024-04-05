@@ -38,7 +38,9 @@ for(let i = 0; i < A.length; i++) {
         if(a > b && first === 'B') {
             first = 'A';
             result++;
-        } else if(a < b && first === 'A') {
+        } 
+        
+        if(a < b && first === 'A') {
             first = 'B';
             result++;
         }
