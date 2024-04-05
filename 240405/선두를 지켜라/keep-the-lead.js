@@ -34,17 +34,18 @@ for(let i = 0; i < A.length; i++) {
 
     if(!first) {
         first = a > b ? 'A' : 'B';
-    } else {
-        if(a > b && first === 'B') {
-            first = 'A';
-            result++;
-        } 
-        
-        if(a < b && first === 'A') {
-            first = 'B';
-            result++;
-        }
+        continue;
     }
+
+    if(a > b && first === 'B') {
+        first = 'A';
+        result++;
+    } 
+        
+    if(a < b && first === 'A') {
+        first = 'B';
+        result++;
+    }    
 }
 
 log(result)
