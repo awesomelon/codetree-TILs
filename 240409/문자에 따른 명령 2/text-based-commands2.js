@@ -8,11 +8,11 @@ let cursor = 0;
 
 for(const a of input) {
     if(a === 'L') {
-        cursor = cursor === 0 ? 3: cursor--;
+        cursor = cursor === 0 ? 3: cursor - 1;
     }
 
     if(a === 'R') {
-        cursor = cursor === 3 ? 0: cursor++;
+        cursor = cursor === 3 ? 0: cursor + 1;
     }
 
     if(a === 'F') {
