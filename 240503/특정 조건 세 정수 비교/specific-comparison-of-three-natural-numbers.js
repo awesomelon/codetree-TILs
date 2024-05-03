@@ -4,7 +4,7 @@ const [a, b, c] = fs.readFileSync(0).toString().trim().split(' ').map(Number);
 
 let result = '';
 
-if(a < b && a < c) {
+if(a <= b && a <= c) {
     result += '1 ';
 } else {
     result += '0 ';
