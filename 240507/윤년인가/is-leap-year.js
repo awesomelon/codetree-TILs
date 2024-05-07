@@ -10,5 +10,8 @@ if(y % 4 === 0) {
         return;
     }
 
-    log('true')
+    log('true');
+    return;
 }
+
+log('false')
