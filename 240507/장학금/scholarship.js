@@ -4,12 +4,12 @@ const [a, b] = fs.readFileSync(0).toString().trim().split(' ').map(Number);
 
 if(a >= 90) {
     if(b >= 95) {
-        log(10);
+        log(100000);
         return;
     } 
 
     if(b >= 90) {
-        log(5);
+        log(50000);
         return;
     }
 }
