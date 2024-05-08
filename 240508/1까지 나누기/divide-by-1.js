@@ -7,7 +7,7 @@ let n = Number(input);
 let count = 0;
 let division = 1;
 
-while(n > 0) {
+while(n > 1) {
     n =  parseInt(n / division);
     division++;
     count++;
